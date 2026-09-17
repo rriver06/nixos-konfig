@@ -17,7 +17,7 @@
       coreutils
       findutils
       util-linux
-    ]
+    ];
 
     serviceConfig.Type = "oneshot";
     script = ''
