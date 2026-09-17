@@ -1,0 +1,23 @@
+~/.config/nixos/
+├── flake.nix
+├── hosts/
+│   └── laptop/                  # Machine specific config (disko, hardware)
+│       └── configuration.nix
+├── modules/                     # System modules (NixOS)
+│   ├── core/                    # Essentials (boot, nix.gc, impermanence, locale)
+│   │   ├── impermanence.nix
+│   │   └── system.nix
+│   ├── desktop/                 # Graphical environments
+│   │   ├── hyprland.nix
+│   │   └── gnome.nix
+│   └── services/                # System services
+│       ├── pipewire.nix
+│       └── bluetooth.nix
+└── home/                        # User modules (Home Manager)
+    ├── default.nix
+    └── apps/                    # Individual app settings
+        ├── git.nix              # Git specific config
+        ├── neovim.nix           # Neovim specific config
+        ├── zsh.nix              # Aliases, prompts and terminal plugins
+        ├── steam.nix            # Steam data y compatibility
+        └── browser.nix          # Firefox / Brave with its extensions
