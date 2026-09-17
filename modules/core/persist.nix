@@ -9,10 +9,11 @@
   # Make sure this is the mount point of the @persist volume.
   #                          vvvv
   environment.persistence."/persist" = {
-    hideMounts = true;                            # Hides bind mounts from utilities as 'df'
+    hideMounts = true;                            # Hides bind mounts from utilities as 'df'.
 
     # System folders that should survive reboot.
     directories = [
+      "/var/db/sudo"                              # Prevents sudo initial message from reapearing.
       "/var/lib/nixos"                            # Mantains the UID/GID of the users.
       "/var/lib/systemd"                          # Saves timers, journalctl y services status.
       "/var/lib/bluetooth"                        # Synced bluetooth devices.
@@ -23,55 +24,23 @@
 
     # Single system files that should survive.
     files = [
-      "/etc/machine-id"                           # Unique system identifier (crucial for logs and systemd)
+      "/etc/machine-id"                           # Unique system identifier (crucial for logs and systemd).
       "/etc/ssh/ssh_host_rsa_key"
       "/etc/ssh/ssh_host_rsa_key.pub"
       "/etc/ssh/ssh_host_ed25519_key"
       "/etc/ssh/ssh_host_ed25519_key.pub"
     ];
 
-    # User files and folders that should survive
-    # Remember to check the username on every machine.
-    users.rriver06 = {
+    # User files and folders are saved on @home subvol so they're safe by default.
+    # Root user files that should survive.
+    users.root = {
       directories = [
-        # Standard personal folders.
-        "Applications"
-        "Backups"
-        "Build"
-        "Documents"
-        "Downloads"
-        "Games"
-        "ISOs"
-        "Music"
-        "Pictures"
-        "Tools"
-        "Videos"
-
-        # General config for most apps.
-        # Might want to keep an eye on this, if NixOS actually works as I think it does,
-        # most of these directories wont be even necessary to mantain.
-        ".android"
-        ".config"
-        ".hplip"
-        ".local"
-        ".mozilla"                                # Important for some extensions
-        ".neostation"                             # In case its installed.
-        ".steam"
-        ".themes"
-        ".icons"
-        ".var"
-        ".wine"
-
-        # Security and keys
-        ".gnupg"
-        ".ssh"
+        ".local/share/fish"
       ];
 
       files = [
-        ".face"
-        ".face.icon"
-        ".steampid"
-        ".steampath"
+        ".bash_history"
+        ".bash_aliases"
       ];
     };
   };

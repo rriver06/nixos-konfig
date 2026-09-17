@@ -58,7 +58,7 @@
               # This is used for the Erase your darlings method.
               # This doesn't works here (or at least it didn't for me).
               # You must manually execute the command after disko finishes.
-              # btrfs subvolume snapshot -r /mnt /mnt/@fresh
+              # Check the GitHub repo for te exact commands.
 
               subvolumes = {
                 "@" = {

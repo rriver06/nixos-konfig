@@ -2,7 +2,8 @@
 
 {
   imports = [
-    # Here we'll be adding apps (ej: ./apps/git.nix)
+    # Here we'll be adding apps
+    ./apps/git.nix
   ];
 
   # Make sure to check the username

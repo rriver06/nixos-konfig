@@ -1,12 +1,20 @@
 { ... }:
 
 {
-  # Define the user account. Don't forget to set a password with ‘passwd <user>’.
+  # Disable system user modifications (declare everything on this file).
+  users.mutableUsers = false;
+
+  # Define some root account settings
+  users.users.root = {
+    hashedPasswordFile = "/persist/root-password";
+  };
+
+  # Define the user account settings.
   # Remember to check the username.
   users.users.rriver06 = {
     isNormalUser = true;
-    initialPassword = "123456";                                    # Remember to change the password on first boot.
     extraGroups = [ "wheel" "networkmanager" "audio" "video" ];
+    hashedPasswordFile = "/persist/shadow-password";
   };
 
 }
