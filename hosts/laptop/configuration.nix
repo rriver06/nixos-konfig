@@ -21,6 +21,7 @@
       ../../modules/services/pipewire.nix
       ../../modules/services/openssh.nix
       ../../modules/services/touchpad.nix
+      ../../modules/services/udisk2.nix
     ];
 
   # Use GRUB and enable EFI and LUKS support.
