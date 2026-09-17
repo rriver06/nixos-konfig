@@ -21,7 +21,7 @@
   environment.systemPackages = with pkgs; [
     # System management
     btop                # TUI Resource monitor.
-    fatfetch            # Review your system specs.
+    fastfetch            # Review your system specs.
     gdu                 # TUI Disk space analizer.
     procs               # Modern replace for ps, inspects processes.
 
