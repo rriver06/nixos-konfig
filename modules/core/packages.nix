@@ -19,12 +19,35 @@
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
   environment.systemPackages = with pkgs; [
-    btrfs-progs
-    curl
-    git
-    udiskie
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    wget
+    # System management
+    btop                # TUI Resource monitor.
+    fatfetch            # Review your system specs.
+    gdu                 # TUI Disk space analizer.
+    procs               # Modern replace for ps, inspects processes.
+
+    # File & searching utilities
+    udiskie             # Automount USB devices.
+    yazi                # TUI File manager.
+    eza                 # Modern replace for ls.
+    bat                 # Modern replace for cat.
+    zoxide              # Modern replace for cd.
+    ripgrep             # Search text inside files, use with (rg).
+    fd                  # Simple replace for find.
+    fzf                 # Fuzzy finder for files, history or lists.
+
+    # Terminal & Sync
+    vim                 # VIM, no more description needed.
+    zellij              # Terminal multiplexor (open various terminals on just one window, or tty).
+    git                 # Version control and repo file sync.
+    gh                  # Official GitHib CLI.
+
+    # Network & Downloads
+    aria2               # Threaded download manager.
+    curl                # Direct downloads from terminal.
+    wget                # Direct downloads from terminal.
+
+    # Other system utilities
+    btrfs-progs         # Needed for operation with btrfs partitions and subvolumes.
   ];
 
   # Program enabling/disabling.
