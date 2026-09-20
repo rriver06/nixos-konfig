@@ -7,7 +7,10 @@
 
     # System SSH key (needed for decryption).
     # I personally save it on my home directory (check username).
-    age.sshKeyPaths = [ "/home/rriver06/.ssh/id_ed25519" ];
+    age.sshKeyPaths = [
+      "/home/rriver06/.ssh/id_ed25519"
+      "/persist/etc/ssh/ssh_host_ed25519_key" 
+    ];
 
     # Declare your secrets here
     secrets = {
