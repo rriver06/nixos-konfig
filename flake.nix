@@ -42,7 +42,6 @@
 
             # Sops module for secret decryption.
             sops-nix.nixosModules.sops
-            ./modules/core/secrets.nix
 
             # Main config location.
             # Make sure to check the host folder being used.

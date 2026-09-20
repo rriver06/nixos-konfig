@@ -11,6 +11,7 @@
       # Includes disko config.
       ./disko-laptop-full.nix    # Config name may vary, please confirm.
       # Include other config files.
+      ../../modules/core/secrets.nix
       ../../modules/core/system.nix
       ../../modules/core/packages.nix
       ../../modules/core/users.nix
