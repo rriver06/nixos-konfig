@@ -1,0 +1,25 @@
+{ config, pkgs, ... }:
+
+{
+  sops = {
+    defaultSopsFile = ../../secrets/secrets.yaml;
+    defaultSopsFormat = "yaml";
+
+    # System SSH key (needed for decryption).
+    # I personally save it on my home directory (check username).
+    age.sshKeyPaths = [ "/home/rriver06/.ssh/id_ed25519" ];
+
+    # Declare your secrets here
+    secrets = {
+      # Secrets needed before system mount.
+      "shadow_password" = {
+        neededForUsers = true;
+      };
+      "root_password" = {
+        neededForUsers = true;
+      };
+
+    };
+  };
+
+}

@@ -17,6 +17,11 @@
     };
 
     impermanence.url = "github:nix-community/impermanence";
+
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs@{ flake-parts, nixpkgs, home-manager, disko, impermanence, ... }:
@@ -35,6 +40,10 @@
             disko.nixosModules.disko
             impermanence.nixosModules.impermanence
 
+            # Sops module for secret decryption.
+            sops-nix.nixosModules.sops
+            ./modules/core/secrets.nix
+
             # Main config location.
             # Make sure to check the host folder being used.
             ./hosts/laptop/configuration.nix
@@ -45,7 +54,7 @@
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               # Make sure to check vvv the username.
-              home-manager.users.rriver06 = import ./home/default.nix;
+              home-manager.users.rriver06 = import ./home/laptop.nix;
             }
           ];
         };

@@ -6,7 +6,7 @@
 
   # Define some root account settings
   users.users.root = {
-    hashedPasswordFile = "/persist/root-password";
+    hashedPasswordFile = config.sops.secrets.root_password.path;
   };
 
   # Define the user account settings.
@@ -14,7 +14,7 @@
   users.users.rriver06 = {
     isNormalUser = true;
     extraGroups = [ "wheel" "networkmanager" "audio" "video" ];
-    hashedPasswordFile = "/persist/shadow-password";
+    hashedPasswordFile = config.sops.secrets.shadow_password.path;
   };
 
 }

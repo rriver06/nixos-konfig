@@ -1,0 +1,6 @@
+creation_rules:
+  - path_regex: secrets/.*\.yaml$
+    key_groups:
+      - age:
+          - "age1ydv0qhpxwwqetdfc5th9rd5953nvrur0h8tjdgan90ux2a0recqse6009n"    # System SSH key, converted using ssh-to-age, located on /etc/ssh/ssh_host_ed25519_key.pub
+          - "age1q6cf74xk7sutf9qm5tee2jde4m6ja6pcaecuxgsrltj5yvupu9jsu5vlkj"    # User SSH key, converted using ssh-to-age, located on ~/.ssh/id_ed25519.pub
