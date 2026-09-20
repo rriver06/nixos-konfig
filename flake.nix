@@ -24,7 +24,7 @@
     };
   };
 
-  outputs = inputs@{ flake-parts, nixpkgs, home-manager, disko, impermanence, ... }:
+  outputs = inputs@{ flake-parts, nixpkgs, home-manager, disko, impermanence, sops-nix, ... }:
     flake-parts.lib.mkFlake { inherit inputs; } {
       # Architectures supported by the config.
       systems = [ "x86_64-linux" ];
