@@ -1,4 +1,4 @@
-{ ... }:
+{ config, ... }:
 
 {
   # Disable system user modifications (declare everything on this file).
