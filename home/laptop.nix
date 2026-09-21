@@ -16,11 +16,6 @@
     username = "rriver06";
     homeDirectory = "/home/rriver06";
 
-    sessionVariables = {
-      # Add flake path to NH (rebuild from anywhere).
-      NHFLAKE = "${config.home.homeDirectory}/.config/nixos";
-    };
-
     # Make sure this version is the same as the one in the main configuration.nix
     stateVersion = "26.05";
   };

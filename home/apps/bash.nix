@@ -1,6 +1,11 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 
 {
+  #Add flake path to NH (rebuild from anywhere).
+  home.sessionVariables = {
+    NHFLAKE = "${config.home.homeDirectory}/.config/nixos";
+  };
+
   programs.bash = {
     enable = true;
 
