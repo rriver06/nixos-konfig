@@ -7,6 +7,7 @@
     ./apps/bash.nix
     ./apps/fzf.nix
     ./apps/zoxide.nix
+    ./apps/bat.nix
   ];
 
   # Make sure to check the username

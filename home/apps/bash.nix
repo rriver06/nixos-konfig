@@ -2,17 +2,6 @@
 
 {
   programs.bash = {
-    initExtra = ''
-      # Make fzf use fd.
-      export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix --hidden --exclude .git'
-      export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-      export FZF_ALT_C_COMMAND='fd --type d --strip-cwd-prefix --hidden --exclude .git'
-      export MANPAGER="sh -c 'col -bx | bat -l man -p'"
-
-      # Replace cd command with z (zoxide).
-      eval "$(zoxide init bash --cmd cd)"
-    '';
-
     # Common shell aliases
     shellAliases = {
       # Directory listing y navigation.
