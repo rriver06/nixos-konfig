@@ -23,8 +23,6 @@
     };
 
     extraConfig = {
-      # Use delta for interactive git add (-p).
-      interactive.diffFilter = "delta --color-only";
       # Better conflict markers when merge conflicts occur.
       merge.conflictstyle = "zdiff3";
     };
