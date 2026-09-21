@@ -13,7 +13,9 @@
 
     # System folders that should survive reboot.
     directories = [
+      "/var/cache/nix-index"                      # Comma data is stored here.
       "/var/db/sudo"                              # Prevents sudo initial message from reapearing.
+      "/var/lib/docker"                           # Docker data libes here.
       "/var/lib/nixos"                            # Mantains the UID/GID of the users.
       "/var/lib/systemd"                          # Saves timers, journalctl y services status.
       "/var/lib/bluetooth"                        # Synced bluetooth devices.

@@ -4,6 +4,8 @@
   imports = [
     # Here we'll be adding apps
     ./apps/git.nix
+    ./apps/bash.nix
+    ./apps/fzf.nix
   ];
 
   # Make sure to check the username

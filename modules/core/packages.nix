@@ -19,39 +19,69 @@
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
   environment.systemPackages = with pkgs; [
+    # ------------------------ TUI Programs -----------------------------
+
     # System management
+    bottom              # TUI Resource monitor.
     btop                # TUI Resource monitor.
-    fastfetch            # Review your system specs.
     gdu                 # TUI Disk space analizer.
+
+    # Project management
+    lazygit             # Interactive Git interface.
+
+    # Various utilities
+    nnn                 # TUI File manager.
+
+
+    # ---------------------- System utilities ---------------------------
+
+    # System management
+    fastfetch           # Review your system specs.
+    nh                  # Nix CLI Helper.
+    nix-index           # Allows package indexing.
+    comma               # Instantly execute programs without rebuilding.
+    direnv              # Loads dependencies when entering a project directory.
+    nix-direnv          # Adds persistent caching for direnv.
     procs               # Modern replace for ps, inspects processes.
 
     # File & searching utilities
     udiskie             # Automount USB devices.
-    yazi                # TUI File manager.
     eza                 # Modern replace for ls.
     bat                 # Modern replace for cat.
     zoxide              # Modern replace for cd.
     ripgrep             # Search text inside files, use with (rg).
     fd                  # Simple replace for find.
     fzf                 # Fuzzy finder for files, history or lists.
+    sd                  # Intuitive replacement for sed.
+    delta               # Syntax-highlightning pager for git diff and file comparisons.
+    dust                # Modern du replacement.
+    duf                 # Colorized table-based df alternative.
+    atuin               # Replaces shell history with an SQLite-backed database.
+    tealdeer            # High-speed rust client for tldr, provides cheat-sheets with man info.
 
-    # Terminal & Sync
+    # Terminal & sync
     vim                 # VIM, no more description needed.
-    zellij              # Terminal multiplexor (open various terminals on just one window, or tty).
+    tmux                # Terminal multiplexor (open various terminals on just one window, or tty).
     git                 # Version control and repo file sync.
     gh                  # Official GitHib CLI.
 
-    # Network & Downloads
+    # Network & downloads
     aria2               # Threaded download manager.
     curl                # Direct downloads from terminal.
     wget                # Direct downloads from terminal.
+    speedtest-cli       # Make internet speed tests directly from terminal.
 
-    # Other system utilities
+    # Others
     btrfs-progs         # Needed for operation with btrfs partitions and subvolumes.
   ];
 
   # Program enabling/disabling.
   # programs.firefox.enable = true;
+
+
+  # ---------------------------------------------------------------------
+  #                                CLEANUP
+  # ---------------------------------------------------------------------
 
   # Nix-collect-garbage (auto clean /nix/store)
   nix.gc = {
