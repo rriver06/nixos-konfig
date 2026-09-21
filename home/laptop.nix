@@ -6,6 +6,7 @@
     ./apps/git.nix
     ./apps/bash.nix
     ./apps/fzf.nix
+    ./apps/zoxide.nix
   ];
 
   # Make sure to check the username
