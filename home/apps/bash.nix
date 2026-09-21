@@ -36,6 +36,7 @@
       ps = "procs";
       cheat = "tldr";
       tldru = "tldr --update";
+      nhs = "nh os switch --no-diff";
     };
   };
 }

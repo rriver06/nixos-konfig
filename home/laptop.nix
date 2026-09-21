@@ -17,6 +17,7 @@
     homeDirectory = "/home/rriver06";
 
     sessionVariables = {
+      # Add flake path to NH (rebuild from anywhere).
       NHFLAKE = "${config.home.homeDirectory}/.config/nixos";
     };
 
