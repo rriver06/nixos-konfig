@@ -2,12 +2,13 @@
 
 {
   imports = [
-    # Here we'll be adding apps
+    # System utils configurations.
     ./apps/git.nix
     ./apps/bash.nix
     ./apps/fzf.nix
     ./apps/zoxide.nix
     ./apps/bat.nix
+    ./apps/delta.nix
   ];
 
   # Make sure to check the username
