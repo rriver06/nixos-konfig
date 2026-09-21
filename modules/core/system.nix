@@ -30,12 +30,12 @@
     # Configure network proxy if necessary.
     # proxy.default = "http://user:password@proxy:port/";
     # proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+  };
 
-    # Allows package forwarding (needed for VMs and VPNs).
-    boot.kernel.sysctl = {
-      "net.ipv4.ip_forward" = 1;
-      "net.ipv6.conf.all.forwarding" = 1;
-    };
+  # Allows package forwarding (needed for VMs and VPNs).
+  boot.kernel.sysctl = {
+    "net.ipv4.ip_forward" = 1;
+    "net.ipv6.conf.all.forwarding" = 1;
   };
 
 
