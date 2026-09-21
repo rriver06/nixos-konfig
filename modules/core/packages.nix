@@ -22,7 +22,6 @@
     # ------------------------ TUI Programs -----------------------------
 
     # System management
-    bottom              # TUI Resource monitor.
     btop                # TUI Resource monitor.
     gdu                 # TUI Disk space analizer.
 
