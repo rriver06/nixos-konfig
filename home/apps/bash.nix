@@ -3,7 +3,7 @@
 {
   #Add flake path to NH (rebuild from anywhere).
   home.sessionVariables = {
-    NHFLAKE = "${config.home.homeDirectory}/.config/nixos";
+    NH_FLAKE = "${config.home.homeDirectory}/.config/nixos";
   };
 
   programs.bash = {
