@@ -2,6 +2,8 @@
 
 {
   programs.bash = {
+    enable = true;
+
     # Common shell aliases
     shellAliases = {
       # Directory listing y navigation.
