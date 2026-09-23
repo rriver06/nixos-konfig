@@ -26,52 +26,8 @@
     networkmanager = {
       enable = true;
 
-      # Manual IP on home networks.
       ensureProfiles.profiles = {
-        # -------------------------------------- WiFi Profiles --------------------------------------
-
-        "Doble R" = {                                         # Network Profile Name
-          connection = {
-            id = "Doble R";                                   # Network Profile Name
-            type = "wifi";
-          };
-          wifi = {
-            mode = "infrastructure";
-            ssid = "Doble R";                                 # WiFi SSID Name
-          };
-          wifi-security = {
-            key-mgmt = "wpa-psk";
-            psk = config.sops.secrets.home_wifi_password.path;
-          };
-          ipv4 = {
-            method = "manual";
-            address1 = "192.168.0.176/24,192.168.0.1";        # Desired IP Address / Mask , Gateway
-            dns = "1.1.1.1;8.8.8.8";
-          };
-        };
-
-        "Doble R 5Ghz" = {                                    # Network Profile Name
-          connection = {
-            id = "Doble R 5Ghz";                              # Network Profile Name
-            type = "wifi";
-          };
-          wifi = {
-            mode = "infrastructure";
-            ssid = "Doble R 5Ghz";                            # WiFi SSID Name
-          };
-          wifi-security = {
-            key-mgmt = "wpa-psk";
-            psk = config.sops.secrets.home_wifi_password.path;
-          };
-          ipv4 = {
-            method = "manual";
-            address1 = "192.168.0.176/24,192.168.0.1";        # Desired IP Address / Mask , Gateway
-            dns = "1.1.1.1;8.8.8.8";
-          };
-        };
-
-
-        # ------------------------------------ Ethernet Profiles ------------------------------------
+        # Manual IP for ethernet
 
         "Wired connection 1" = {                              # Network Profile Name
           connection = {
@@ -86,10 +42,64 @@
           };
         };
 
-
       };
     };
   };
+
+
+  # Manual IP for WiFi
+  sops.templates."Doble R.nmconnection" = {
+    path = "/etc/NetworkManager/system-connections/Doble R.nmconnection";
+    mode = "0600";
+    content = ''
+      [connection]
+      id=Doble R
+      uuid=89ba0b63-f0cc-3751-bbf2-7d97758333e1
+      type=wifi
+      interface-name=wlp0s20f3
+
+      [wifi]
+      mode=infrastructure
+      ssid=Doble R
+
+      [wifi-security]
+      key-mgmt=wpa-psk
+      psk=${config.sops.placeholder.home_wifi_password}
+
+      [ipv4]
+      method=manual
+      address1=192.168.0.176/24
+      gateway=192.168.0.1
+      dns=1.1.1.1;8.8.8.8
+    '';
+  };
+
+  sops.templates."Doble R 5Ghz.nmconnection" = {
+    path = "/etc/NetworkManager/system-connections/Doble R 5Ghz.nmconnection";
+    mode = "0600";
+    content = ''
+      [connection]
+      id=Doble R 5Ghz
+      uuid=29240a02-a120-4442-b3e7-e9fefbdf56b2
+      type=wifi
+      interface-name=wlp0s20f3
+
+      [wifi]
+      mode=infrastructure
+      ssid=Doble R 5Ghz
+
+      [wifi-security]
+      key-mgmt=wpa-psk
+      psk=${config.sops.placeholder.home_wifi_password}
+
+      [ipv4]
+      method=manual
+      address1=192.168.0.176/24
+      gateway=192.168.0.1
+      dns=1.1.1.1;8.8.8.8;
+    '';
+  };
+
 
   # Allows package forwarding (needed for VMs and VPNs).
   boot.kernel.sysctl = {
