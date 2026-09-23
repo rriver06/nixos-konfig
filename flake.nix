@@ -50,10 +50,13 @@
             # Home Manager integration.
             home-manager.nixosModules.home-manager
             {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              # Make sure to check vvv the username.
-              home-manager.users.rriver06 = import ./home/laptop.nix;
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                # Make sure to check the username here.
+                users.rriver06 = import ./home/laptop.nix;
+                backupFileExtension = "backup";
+              };
             }
           ];
         };

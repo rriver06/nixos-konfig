@@ -1,23 +1,22 @@
 { pkgs, config, ... }:
 
 {
-  #Add flake path to NH (rebuild from anywhere).
-  home.sessionVariables = {
-    NH_FLAKE = "${config.home.homeDirectory}/.config/nixos";
-  };
-
-  programs.bash = {
-    enable = true;
+  # Define global variables here.
+  home = {
+    sessionVariables = {
+      # Add flake path to NH (rebuild from anywhere).
+      NH_FLAKE = "${config.home.homeDirectory}/.config/nixos";
+    };
 
     # Common shell aliases
     shellAliases = {
       # Directory listing y navigation.
-      ls = "eza --icons=auto";
-      ll = "eza -l --icons=auto --git";
-      la = "eza -la --icons=auto --git";
-      lt = "eza --tree --icons=auto --git";
-      llt = "eza --tree --level=2 --icons=auto --git";
-      lllt = "eza --tree --level=3 --icons=auto -a --git";
+      ls = "eza --group-directories-first  --icons=auto";
+      ll = "eza -l --group-directories-first --icons=auto --git";
+      la = "eza -la --group-directories-first --icons=auto --git";
+      lt = "eza --tree --group-directories-first --icons=auto --git";
+      llt = "eza --tree --level=2 --group-directories-first --icons=auto --git";
+      lllt = "eza --tree --level=3 --group-directories-first --icons=auto -a --git";
 
       # File & text viewing.
       cat = "bat --paging=never";
@@ -42,6 +41,9 @@
       cheat = "tldr";
       tldru = "tldr --update";
       nhs = "nh os switch --no-nom";
+      nht = "nh os test --no-nom";
+      nhb = "nh os boot --no-nom";
     };
   };
+
 }

@@ -21,6 +21,7 @@
       "/var/lib/bluetooth"                        # Synced bluetooth devices.
       "/var/lib/flatpak"                          # Flatpak apps.
       "/var/lib/libvirt"                          # QEMU/KVM Images.
+      "/etc/nixos"                                # Default system config location.
       "/etc/NetworkManager/system-connections"    # Saved WiFi connections.
     ];
 

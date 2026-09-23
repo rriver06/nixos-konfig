@@ -2,44 +2,6 @@
 
 {
   # ---------------------------------------------------------------------
-  #                               NETWORK
-  # ---------------------------------------------------------------------
-
-  networking = {
-    # Set device hostname.
-    hostName = "Inspiron3501";
-
-    # Configure network connections interactively with nmcli or nmtui.
-    networkmanager.enable = true;
-
-    # Manual IP settings for home networks.
-    # I'll set this up later.
-
-    # Open ports in the firewall.
-    # firewall.allowedTCPPorts = [ ... ];
-    # firewall.allowedUDPPorts = [ ... ];
-    # Or enable/disable the firewall altogether.
-    firewall.enable = true;
-
-    # Allow VMs to get through the firewall
-    firewall.checkReversePath = "loose";
-
-    # Enable DHCP as a default value.
-    useDHCP = lib.mkDefault true;
-
-    # Configure network proxy if necessary.
-    # proxy.default = "http://user:password@proxy:port/";
-    # proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-  };
-
-  # Allows package forwarding (needed for VMs and VPNs).
-  boot.kernel.sysctl = {
-    "net.ipv4.ip_forward" = 1;
-    "net.ipv6.conf.all.forwarding" = 1;
-  };
-
-
-  # ---------------------------------------------------------------------
   #                           TIME & LOCALES
   # ---------------------------------------------------------------------
 

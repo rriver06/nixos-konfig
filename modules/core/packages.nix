@@ -11,10 +11,13 @@
   # Enable support for Flakes & new Nix CLI.
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  # Allow some unfree packages
-  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (pkg.pname or (builtins.parseDrvName pkg.name).name) [
-    "vscode"
-  ];
+  # Allow unfree packages (comment the line to use the list method below).
+  nixpkgs.config.allowUnfree = true;
+
+  # Allow only some unfree packages
+  # nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (pkg.pname or (builtins.parseDrvName pkg.name).name) [
+  #   "vscode"
+  # ];
 
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
@@ -72,6 +75,8 @@
 
     # Others
     btrfs-progs         # Needed for operation with btrfs partitions and subvolumes.
+    sops                # Encryption and decryption of files using SSH keys.
+    ssh-to-age          # Converts SSH keys to the age format.
   ];
 
   # Program enabling/disabling.

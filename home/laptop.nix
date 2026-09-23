@@ -3,12 +3,14 @@
 {
   imports = [
     # System utils configurations.
-    ./apps/git.nix
-    ./apps/bash.nix
-    ./apps/fzf.nix
-    ./apps/zoxide.nix
-    ./apps/bat.nix
-    ./apps/delta.nix
+    ./utils/git.nix
+    ./utils/bash.nix
+    ./utils/fzf.nix
+    ./utils/zoxide.nix
+    ./utils/bat.nix
+    ./utils/delta.nix
+    ./utils/ssh.nix
+    ./utils/terminal.nix
   ];
 
   home = {

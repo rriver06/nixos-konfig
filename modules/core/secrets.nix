@@ -12,7 +12,6 @@
       "/persist/etc/ssh/ssh_host_ed25519_key" 
     ];
 
-    # Declare your secrets here
     secrets = {
       # Secrets needed before system mount.
       "shadow_password" = {
@@ -21,6 +20,10 @@
       "root_password" = {
         neededForUsers = true;
       };
+
+      # Normal secrets
+      "home_wifi_password" = { owner = "rriver06"; };
+      "server_ssh_pubkey" = { owner = "rriver06"; mode = "0400"; };
 
     };
   };
