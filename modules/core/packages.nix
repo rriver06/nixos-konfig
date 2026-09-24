@@ -77,6 +77,7 @@
     btrfs-progs         # Needed for operation with btrfs partitions and subvolumes.
     sops                # Encryption and decryption of files using SSH keys.
     ssh-to-age          # Converts SSH keys to the age format.
+    nixfmt              # Formatter for the Nix language.
     appimage-run        # Allows to run AppImages.
     flatpak             # Flatpaks running and related.
   ];

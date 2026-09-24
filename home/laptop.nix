@@ -24,6 +24,11 @@
     username = "rriver06";
     homeDirectory = "/home/rriver06";
 
+    # Packages installed for this user.
+    packages = with pkgs; [
+      # Here goes the user apps.
+    ];
+
     # Make sure this version is the same as the one in the main configuration.nix
     stateVersion = "26.05";
   };
