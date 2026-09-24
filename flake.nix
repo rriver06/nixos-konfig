@@ -22,9 +22,11 @@
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nix-flatpak.url = "github:gmodena/nix-flatpak";
   };
 
-  outputs = inputs@{ flake-parts, nixpkgs, home-manager, disko, impermanence, sops-nix, ... }:
+  outputs = inputs@{ flake-parts, nixpkgs, home-manager, disko, impermanence, sops-nix, nix-flatpak, ... }:
     flake-parts.lib.mkFlake { inherit inputs; } {
       # Architectures supported by the config.
       systems = [ "x86_64-linux" ];
@@ -39,9 +41,8 @@
             # External modules.
             disko.nixosModules.disko
             impermanence.nixosModules.impermanence
-
-            # Sops module for secret decryption.
             sops-nix.nixosModules.sops
+            nix-flatpak.nixosModules.nix-flatpak
 
             # Main config location.
             # Make sure to check the host folder being used.

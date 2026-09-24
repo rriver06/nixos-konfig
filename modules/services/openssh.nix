@@ -14,8 +14,6 @@
       PasswordAuthentication = false;          # Disables password login (use SSH keys.).
       X11Forwarding = false;                   # Disable X11 forward if not needed.
       KbdInteractiveAuthentication = false;    # Allows only modern and secure login methods.
-
-      AuthorizedKeysFile = "/etc/ssh/authorized_keys.d/%u %h/.ssh/authorized_keys /run/secrets/server_ssh_pubkey";
     };
 
     # Generate only modern host keys.

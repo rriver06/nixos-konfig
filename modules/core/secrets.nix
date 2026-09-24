@@ -23,7 +23,6 @@
 
       # Normal secrets
       "home_wifi_password" = { owner = "rriver06"; };
-      "server_ssh_pubkey" = { owner = "rriver06"; mode = "0400"; };
 
     };
   };

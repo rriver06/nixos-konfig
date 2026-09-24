@@ -15,6 +15,9 @@
     isNormalUser = true;
     extraGroups = [ "wheel" "networkmanager" "audio" "video" ];
     hashedPasswordFile = config.sops.secrets.shadow_password.path;
+    openssh.authorizedKeys.keyFiles = [
+      ../../keys/prodesk.pub
+    ];
   };
 
 }

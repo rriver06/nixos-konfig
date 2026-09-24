@@ -11,6 +11,12 @@
     ./utils/delta.nix
     ./utils/ssh.nix
     ./utils/terminal.nix
+
+    # App settings.
+    # ./apps/app.nix
+
+    # AppImage settings.
+    # ./apps/appimages/appimage-template.nix
   ];
 
   home = {

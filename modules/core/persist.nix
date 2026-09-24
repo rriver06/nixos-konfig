@@ -48,19 +48,6 @@
     };
   };
 
-  # Allows saving SSH keys created dynamically on /persist/etc/ssh
-  services.openssh.hostKeys = [
-    {
-      path = "/persist/etc/ssh/ssh_host_ed25519_key";
-      type = "ed25519";
-    }
-    {
-      path = "/persist/etc/ssh/ssh_host_rsa_key";
-      type = "rsa";
-      bits = 4096;
-    }
-  ];
-
   # Allow user SSH Keys to have correct permissions after restoration.
   programs.fuse.userAllowOther = true;
 

@@ -77,10 +77,17 @@
     btrfs-progs         # Needed for operation with btrfs partitions and subvolumes.
     sops                # Encryption and decryption of files using SSH keys.
     ssh-to-age          # Converts SSH keys to the age format.
+    appimage-run        # Allows to run AppImages.
+    flatpak             # Flatpaks running and related.
   ];
 
   # Program enabling/disabling.
   # programs.firefox.enable = true;
+
+  # Font packages
+  fonts.packages = with pkgs; [
+    nerd-fonts.jetbrains-mono
+  ];
 
 
   # ---------------------------------------------------------------------
@@ -94,10 +101,37 @@
     options = "--delete-older-than 7d";
   };
 
+  # Nix-optimize auto exec.
+  nix.optimise = {
+    automatic = true;
+    dates = "weekly";
+  };
+
 
   # ---------------------------------------------------------------------
   #                           PROGRAM SETTINGS
   # ---------------------------------------------------------------------
+
+  # Config for AppImage running.
+  # Legacy method: (only here in case new method doesn't work).
+  # boot.binfmt.registrations.appimage = {
+  #   wrapInterpreterInShell = false;
+  #   interpreter = "${pkgs.appimage-run}/bin/appimage-run";
+  #   recognitionType = "magic";
+  #   offset = 0;
+  #   mask = ''\xff\xff\xff\xff\x00\x00\x00\x00\xff\xff\xff'';
+  #   magicOrExtension = ''\x7fELF....AI\x02'';
+  # };
+
+  # Modern method
+  programs.appimage = {
+    enable = true;
+    binfmt = true;
+  };
+
+  # Enable XDG desktop portal.
+  # Enable after installing a desktop.
+  # xdg.portal.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
