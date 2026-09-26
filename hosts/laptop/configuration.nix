@@ -18,6 +18,7 @@
       ../../modules/core/persist.nix
 
       # Include some desktop configs
+      ../../modules/desktop/xserver.nix
 
       # Include service configs
       ../../modules/services/bluetooth.nix

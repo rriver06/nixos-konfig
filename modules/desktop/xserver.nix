@@ -1,18 +1,14 @@
 { ... }:
 
 {
-  # X11 settings
-  # Since I'll be using wayland on this setup, this file is unused.
-  # It's only here for backup purposes.
+  # Enables the graphical backend.
+  services.xserver = {
+    enable = true;
+    autoRepeatDelay = 200;
+    autoRepeatInterval = 35;
+  };
 
-  # Enable the X11 windowing system.
-  # services.xserver = {
-  #   enable = true;
-  #   autoRepeatDelay = 200;
-  #   autoRepeatInterval = 35;
-  # };
-
-  # Configure keymap in X11
-  # services.xserver.xkb.layout = "us";
+  # Configure keymap in desktop.
+  services.xserver.xkb.layout = "us";
   # services.xserver.xkb.options = "eurosign:e,caps:escape";
 }

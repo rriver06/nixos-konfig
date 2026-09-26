@@ -66,6 +66,8 @@
     tmux                # Terminal multiplexor (open various terminals on just one window, or tty).
     git                 # Version control and repo file sync.
     gh                  # Official GitHib CLI.
+    fish                # Fish shell.
+    starship            # Starship shell helper.
 
     # Network & downloads
     aria2               # Threaded download manager.
@@ -83,10 +85,11 @@
   ];
 
   # Program enabling/disabling.
-  # programs.firefox.enable = true;
+  programs.fish.enable = true;
 
   # Font packages
   fonts.packages = with pkgs; [
+    terminus_font
     nerd-fonts.jetbrains-mono
   ];
 

@@ -3,14 +3,15 @@
 {
   imports = [
     # System utils configurations.
+    ./utils/terminal/terminal.nix
+    ./utils/terminal/fish.nix
+    ./utils/terminal/starship.nix
     ./utils/git.nix
-    ./utils/bash.nix
     ./utils/fzf.nix
     ./utils/zoxide.nix
     ./utils/bat.nix
     ./utils/delta.nix
     ./utils/ssh.nix
-    ./utils/terminal.nix
 
     # App settings.
     # ./apps/app.nix

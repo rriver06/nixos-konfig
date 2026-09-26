@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ lib, pkgs, ... }:
 
 {
   # ---------------------------------------------------------------------
@@ -30,6 +30,13 @@
   security.sudo.extraConfig = ''
     Defaults pwfeedback
   '';
+
+  # Change TTY font and size.
+  console = {
+    enable = true;
+    font = "ter-v24n";
+    packages = [ pkgs.terminus_font ];
+  };
 
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you

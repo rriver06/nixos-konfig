@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, pkgs, ... }:
 
 {
   # Disable system user modifications (declare everything on this file).
@@ -15,6 +15,7 @@
     isNormalUser = true;
     extraGroups = [ "wheel" "networkmanager" "audio" "video" ];
     hashedPasswordFile = config.sops.secrets.shadow_password.path;
+    shell = pkgs.fish;
     openssh.authorizedKeys.keyFiles = [
       ../../keys/prodesk.pub
     ];
