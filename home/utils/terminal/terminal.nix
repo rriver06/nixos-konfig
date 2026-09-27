@@ -43,6 +43,10 @@
       nhs = "nh os switch --no-nom";
       nht = "nh os test --no-nom";
       nhb = "nh os boot --no-nom";
+
+      # Other aliases.
+      pokefetch = "clear && pokeget random --hide-name | fastfetch --file-raw -";
+      waydroid-mount = "sudo bindfs --mirror=$(id -u) ~/.local/share/waydroid/data/media/0 /mnt/waydroid";
     };
   };
 

@@ -82,6 +82,7 @@
     nixfmt              # Formatter for the Nix language.
     appimage-run        # Allows to run AppImages.
     flatpak             # Flatpaks running and related.
+    pokeget-rs          # Show pokemon sprites on the terminal.
   ];
 
   # Program enabling/disabling.

@@ -5,7 +5,7 @@
   programs.fish = {
     enable = true;
 
-    shellInit = "fastfetch";
+    shellInit = "pokefetch";
     functions = {
       fish_greeting = "echo 'Welcome back!'";
     };
