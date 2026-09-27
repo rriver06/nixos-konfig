@@ -20,10 +20,9 @@
       # Include some desktop configs
       ../../modules/desktop/xserver.nix
       ../../modules/desktop/intel.nix
-      ../../modules/desktop/noctalia-greeter.nix
 
       # Include service configs
-      ../../modules/services/greetd.nix
+      ../../modules/services/greeter.nix
       ../../modules/services/bluetooth.nix
       ../../modules/services/cups.nix
       ../../modules/services/pipewire.nix

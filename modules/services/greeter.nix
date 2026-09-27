@@ -13,4 +13,9 @@
     };
   };
 
+  # Allow unlocking password keyring after login
+  security.pam.services.greetd.enableGnomeKeyring = true;
+
+  # Allow setting user profile and name
+  services.accounts-daemon.enable = true;
 }
