@@ -25,6 +25,7 @@
 
   # Enable sudo.
   security.sudo.enable = true;
+  security.polkit.enable = true;
 
   # Enable pwfeedback on terminal.
   security.sudo.extraConfig = ''

@@ -12,7 +12,7 @@ in
 {
   # Enable flatpak service.
   services.flatpak = {
-    # enable = true;
+    enable = true;
     update.onActivation = true;    # Update flatpaks when doing a rebuild.
     uninstallUnmanaged = true;     # Disable flatpaks not on the list.
 

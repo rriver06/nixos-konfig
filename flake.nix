@@ -19,14 +19,25 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-flatpak.url = "github:gmodena/nix-flatpak";
-    nvf.url = "github:notashelf/nvf";
+    nvf = {
+      url = "github:NotAShelf/nvf";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # Nix User Repository
     nur.url = "github:nix-community/NUR";
 
+    # Noctalia Shell & Greeter
+    noctalia-greeter = {
+      url = "github:noctalia-dev/noctalia-greeter";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    noctalia.url = "github:noctalia-dev/noctalia/cachix";
+
   };
 
-  outputs = inputs@{ flake-parts, nixpkgs, home-manager, disko, impermanence, sops-nix, nix-flatpak, nur, nvf, ... }:
+  outputs = inputs@{ flake-parts, nixpkgs, home-manager, disko, impermanence, sops-nix, nix-flatpak, nur, nvf, noctalia-greeter, noctalia, ... }:
     flake-parts.lib.mkFlake { inherit inputs; } {
       # Architectures supported by the config.
       systems = [ "x86_64-linux" ];
@@ -44,6 +55,7 @@
             sops-nix.nixosModules.sops
             nix-flatpak.nixosModules.nix-flatpak
             nur.modules.nixos.default
+            noctalia-greeter.nixosModules.default
 
             # Main config location.
             # Make sure to check the host folder being used.
@@ -58,6 +70,7 @@
 
                 sharedModules = [
                   nvf.homeManagerModules.default
+                  noctalia.homeModules.default
                 ];
 
                 # Make sure to check the username here.

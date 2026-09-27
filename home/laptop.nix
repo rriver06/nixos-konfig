@@ -18,6 +18,12 @@
 
     # AppImage settings.
     # ./apps/appimages/appimage-template.nix
+
+    # Theme settings.
+    ./themes/cursor.nix
+
+    # Desktop settings.
+    ./desktop/noctalia.nix
   ];
 
   home = {
@@ -27,7 +33,22 @@
 
     # Packages installed for this user.
     packages = with pkgs; [
-      # Here goes the user apps.
+      # ---------------- Desktop / WM -----------------
+
+      kitty                   # Graphical terminal.
+
+
+      # ---------------- System Tools -----------------
+
+      nautilus                # GNOME's file manager.
+      pavucontrol             # Volume manager.
+      blueman                 # Bluetooth manager.
+      networkmanagerapplet    # WiFi GUI for NetworkManager.
+
+      # ------------- Wayland Components --------------
+
+      polkit_gnome            # Floating password prompt.
+      libnotify               # Notifications graphic engine.
     ];
 
     # Make sure this version is the same as the one in the main configuration.nix

@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, inputs, ... }:
 
 {
   # ---------------------------------------------------------------------
@@ -75,7 +75,6 @@
     tmux                # Terminal multiplexor (open various terminals on just one window, or tty).
     git                 # Version control and repo file sync.
     gh                  # Official GitHib CLI.
-    fish                # Fish shell.
     starship            # Starship shell helper.
 
     # Network & downloads
@@ -90,18 +89,24 @@
     ssh-to-age          # Converts SSH keys to the age format.
     nixfmt              # Formatter for the Nix language.
     appimage-run        # Allows to run AppImages.
-    flatpak             # Flatpaks running and related.
     pokeget-rs          # Show pokemon sprites on the terminal.
   ];
 
   # Program enabling/disabling.
-  programs.fish.enable = true;
+  programs.fish.enable = true;        # Enables the fish shell.
+  programs.xwayland.enable = true;    # Allows X11 apps on Wayland.
 
   # Font packages
   fonts.packages = with pkgs; [
     terminus_font
     nerd-fonts.jetbrains-mono
   ];
+
+  # Noctalia cached packages override.
+  nix.settings = {
+    extra-substituters = [ "https://noctalia.cachix.org" ];
+    extra-trusted-public-keys = [ "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4=" ];
+  };
 
 
   # ---------------------------------------------------------------------
@@ -144,8 +149,16 @@
   };
 
   # Enable XDG desktop portal.
-  # Enable after installing a desktop.
-  # xdg.portal.enable = true;
+  xdg.portal = {
+    enable = true;
+    extraPortals = [
+      pkgs.xdg-desktop-portal-gtk
+    ];
+    config = {
+      common = { default = [ "gtk" ]; };
+      niri = { default = [ "gtk" ]; };
+    };
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
