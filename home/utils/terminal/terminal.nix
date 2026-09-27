@@ -45,7 +45,8 @@
       nhb = "nh os boot --no-nom";
 
       # Other aliases.
-      pokefetch = "clear && pokeget random --hide-name | fastfetch --file-raw -";
+      # pokefetch (pf) got moved to fish functions, uncomment this only if you're not using fish.
+      # pf = "clear && pokeget random --hide-name | fastfetch --file-raw -";
       waydroid-mount = "sudo bindfs --mirror=$(id -u) ~/.local/share/waydroid/data/media/0 /mnt/waydroid";
     };
   };
