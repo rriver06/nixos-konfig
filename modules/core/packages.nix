@@ -19,6 +19,9 @@
   #   "vscode"
   # ];
 
+  # Apply niri overlay
+  nixpkgs.overlays = [ inputs.niri.overlays.niri ];
+
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
   environment.systemPackages = with pkgs; [
@@ -100,13 +103,23 @@
   # Font packages
   fonts.packages = with pkgs; [
     terminus_font
-    nerd-fonts.jetbrains-mono
+    jetbrains-mono
+    noto-fonts
+    noto-fonts-cjk-sans
+    noto-fonts-cjk-serif
+    font-awesome
   ];
 
-  # Noctalia cached packages override.
+  # Niri and noctalia cached packages override.
   nix.settings = {
-    extra-substituters = [ "https://noctalia.cachix.org" ];
-    extra-trusted-public-keys = [ "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4=" ];
+    extra-substituters = [
+      "https://noctalia.cachix.org"
+      "https://niri-epireyn.cachix.org"
+    ];
+    extra-trusted-public-keys = [
+      "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
+      "niri-epireyn.cachix.org-1:tlVyFN7CtsDT+ZcLPS+ekFWeT1X6X4OqvWqbBMyIzFA="
+    ];
   };
 
 
@@ -169,3 +182,4 @@
   };
 
 }
+

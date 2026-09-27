@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   imports = [
@@ -24,6 +24,7 @@
 
     # Desktop settings.
     ./desktop/noctalia.nix
+    ./desktop/niri.nix
   ];
 
   home = {
@@ -36,6 +37,9 @@
       # ---------------- Desktop / WM -----------------
 
       kitty                   # Graphical terminal.
+      fuzzel                  # Minimalistic app launcher.
+      swaylock                # Wayland screen locker.
+      niri
 
 
       # ---------------- System Tools -----------------

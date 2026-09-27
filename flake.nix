@@ -27,17 +27,19 @@
     # Nix User Repository
     nur.url = "github:nix-community/NUR";
 
+    # Niri WM
+    niri.url = "github:epireyn/niri-flake";
+
     # Noctalia Shell & Greeter
     noctalia-greeter = {
       url = "github:noctalia-dev/noctalia-greeter";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
     noctalia.url = "github:noctalia-dev/noctalia/cachix";
 
   };
 
-  outputs = inputs@{ flake-parts, nixpkgs, home-manager, disko, impermanence, sops-nix, nix-flatpak, nur, nvf, noctalia-greeter, noctalia, ... }:
+  outputs = inputs@{ flake-parts, nixpkgs, home-manager, disko, impermanence, sops-nix, nix-flatpak, nur, nvf, niri, noctalia-greeter, noctalia, ... }:
     flake-parts.lib.mkFlake { inherit inputs; } {
       # Architectures supported by the config.
       systems = [ "x86_64-linux" ];
@@ -67,6 +69,8 @@
               home-manager = {
                 useGlobalPkgs = true;
                 useUserPackages = true;
+
+                extraSpecialArgs = { inherit inputs; };
 
                 sharedModules = [
                   nvf.homeManagerModules.default
