@@ -22,7 +22,16 @@
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
   environment.systemPackages = with pkgs; [
+    # ------------------------ GUI Programs -----------------------------
+
+    # Others
+    wl-clipboard        # Wayland clipboard compatibility.
+
     # ------------------------ TUI Programs -----------------------------
+
+    # Media playing
+    rmpc                # TUI Music Player with media visualizer.
+    cava                # Terminal audio visualizer.
 
     # System management
     btop                # TUI Resource monitor.

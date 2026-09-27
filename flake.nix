@@ -19,13 +19,14 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-flatpak.url = "github:gmodena/nix-flatpak";
+    nvf.url = "github:notashelf/nvf";
 
     # Nix User Repository
     nur.url = "github:nix-community/NUR";
 
   };
 
-  outputs = inputs@{ flake-parts, nixpkgs, home-manager, disko, impermanence, sops-nix, nix-flatpak, nur, ... }:
+  outputs = inputs@{ flake-parts, nixpkgs, home-manager, disko, impermanence, sops-nix, nix-flatpak, nur, nvf, ... }:
     flake-parts.lib.mkFlake { inherit inputs; } {
       # Architectures supported by the config.
       systems = [ "x86_64-linux" ];
@@ -54,6 +55,11 @@
               home-manager = {
                 useGlobalPkgs = true;
                 useUserPackages = true;
+
+                sharedModules = [
+                  nvf.homeManagerModules.default
+                ];
+
                 # Make sure to check the username here.
                 users.rriver06 = import ./home/laptop.nix;
                 backupFileExtension = "backup";

@@ -14,7 +14,7 @@
     ./utils/ssh.nix
 
     # App settings.
-    # ./apps/app.nix
+    ./apps/nvf.nix
 
     # AppImage settings.
     # ./apps/appimages/appimage-template.nix
