@@ -6,6 +6,11 @@
     sessionVariables = {
       # Add flake path to NH (rebuild from anywhere).
       NH_FLAKE = "${config.home.homeDirectory}/.config/nixos";
+      # WM related fixes.
+      NIXOS_OZONE_WL = "1";
+      MOZ_ENABLE_WAYLAND = "1";
+      XDG_CURRENT_DESKTOP = "Niri";
+      XDG_SESSION_TYPE = "wayland";
     };
 
     # Common shell aliases

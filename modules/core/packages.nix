@@ -29,6 +29,7 @@
 
     # Others
     wl-clipboard        # Wayland clipboard compatibility.
+    xwayland-satellite  # X11 - Wayland video bridge.
 
     # ------------------------ TUI Programs -----------------------------
 
