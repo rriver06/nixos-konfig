@@ -95,6 +95,7 @@
   # Program enabling/disabling.
   programs.fish.enable = true;        # Enables the fish shell.
   programs.xwayland.enable = true;    # Allows X11 apps on Wayland.
+  programs.niri.enable = true;        # Niri tiling WM.
 
   # Font packages
   fonts.packages = with pkgs; [
@@ -156,7 +157,6 @@
     ];
     config = {
       common = { default = [ "gtk" ]; };
-      niri = { default = [ "gtk" ]; };
     };
   };
 
