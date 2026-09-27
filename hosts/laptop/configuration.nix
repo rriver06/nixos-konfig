@@ -44,7 +44,7 @@
 
   # Define available kernel modules at boot.
   boot.initrd.availableKernelModules = [ "aesni_intel" "cryptd" "nvme" "xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod" ];
-  boot.initrd.kernelModules = [ "dm-snapshot" ];
+  boot.initrd.kernelModules = [ "dm-snapshot" "i915" ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
