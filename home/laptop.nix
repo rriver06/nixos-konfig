@@ -34,6 +34,12 @@
 
     # Packages installed for this user.
     packages = with pkgs; [
+      # ------------------ Internet -------------------
+
+      # Zen Browser
+      inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
+
+
       # ---------------- Desktop / WM -----------------
 
       kitty                   # Graphical terminal.

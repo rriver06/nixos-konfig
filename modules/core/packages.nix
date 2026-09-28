@@ -27,6 +27,11 @@
   environment.systemPackages = with pkgs; [
     # ------------------------ GUI Programs -----------------------------
 
+    # Game tools
+    protonup-qt         # Manage custom proton versions.
+    mangohud            # Perfomance overlay.
+    steam-run           # Allows running non-steam software from steam.
+
     # Others
     wl-clipboard        # Wayland clipboard compatibility.
     xwayland-satellite  # X11 - Wayland video bridge.
@@ -36,6 +41,10 @@
     # Media playing
     rmpc                # TUI Music Player with media visualizer.
     cava                # Terminal audio visualizer.
+
+    # Game tools
+    steamcmd            # Steam cmd utility.
+    steam-tui           # Steam TUI client.
 
     # System management
     btop                # TUI Resource monitor.

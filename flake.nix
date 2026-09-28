@@ -37,6 +37,9 @@
     };
     noctalia.url = "github:noctalia-dev/noctalia/cachix";
 
+    # Zen Browser
+    zen-browser.url = "github:youwen5/zen-browser-flake";
+
   };
 
   outputs = inputs@{ flake-parts, nixpkgs, home-manager, disko, impermanence, sops-nix, nix-flatpak, nur, nvf, niri, noctalia-greeter, noctalia, ... }:

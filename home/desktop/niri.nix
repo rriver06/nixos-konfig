@@ -56,6 +56,15 @@
           open-maximized = true;
         }
 
+        # Make steam friends window open floating.
+        {
+          matches = [
+            { app-id = "^steam$"; title = "^(Amigos|Friends|Chat)$"; }
+          ];
+          open-floating = true;
+          open-maximized = false;
+        }
+
         # Exclude Noctalia or its borders from shadows/borders.
         {
           matches = [
