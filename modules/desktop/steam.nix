@@ -6,9 +6,11 @@
     remotePlay.openFirewall = true;
     dedicatedServer.openFirewall = true;
     extest.enable = true;
+    gamescopeSession.enable = true;
 
     extraPackages = with pkgs; [
       hidapi
+      jdk
     ];
 
     # Fix Gamescope not launching due to missing Xorg libraries.
@@ -37,5 +39,9 @@
     enable = true;
     capSysNice = false;    # Enables HDR support.
   };
+
+  # Enable the XBOX Controller USB dongle.
+  hardware.xone.enable = true;
+  hardware.uinput.enable = true;
 
 }

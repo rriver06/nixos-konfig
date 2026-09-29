@@ -106,9 +106,12 @@
   ];
 
   # Program enabling/disabling.
-  programs.fish.enable = true;        # Enables the fish shell.
-  programs.xwayland.enable = true;    # Allows X11 apps on Wayland.
-  programs.niri.enable = true;        # Niri tiling WM.
+  programs = {
+    fish.enable = true;        # Enables the fish shell.
+    xwayland.enable = true;    # Allows X11 apps on Wayland.
+    niri.enable = true;        # Niri tiling WM.
+    java.enable = true;        # Enables java.
+  };
 
   # Font packages
   fonts.packages = with pkgs; [

@@ -45,7 +45,7 @@
       kitty                   # Graphical terminal.
       fuzzel                  # Minimalistic app launcher.
       swaylock                # Wayland screen locker.
-      niri
+      niri                    # Niri tiling WM.
 
 
       # ---------------- System Tools -----------------
@@ -54,6 +54,8 @@
       pavucontrol             # Volume manager.
       blueman                 # Bluetooth manager.
       networkmanagerapplet    # WiFi GUI for NetworkManager.
+      wlr-randr               # Control monitors.
+
 
       # ------------- Wayland Components --------------
 
