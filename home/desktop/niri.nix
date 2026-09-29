@@ -99,7 +99,7 @@
         # Open wl-mirror automatically on external display.
         {
           matches = [
-            { app-id = "^wl-mirror$"; }
+            { app-id = "^at\\.yrlf\\.wl_mirror$"; }
           ];
           open-on-output = "HDMI-A-1";
           open-fullscreen = true;
