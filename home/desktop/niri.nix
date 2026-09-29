@@ -96,6 +96,15 @@
           open-floating = true;
         }
 
+        # Open wl-mirror automatically on external display.
+        {
+          matches = [
+            { app-id = "^wl-mirror$"; }
+          ];
+          open-on-output = "HDMI-A-1";
+          open-fullscreen = true;
+        }
+
         # Exclude Noctalia or its borders from shadows/borders.
         {
           matches = [
@@ -118,7 +127,23 @@
         "Mod+Shift+E".action.power-off-monitors = {};
         "Mod+F7".action.spawn = [ "wlr-randr" "--output" "eDP-1" "--off" ];
         "Mod+Shift+F7".action.spawn = [ "wlr-randr" "--output" "eDP-1" "--on" ];
-        "Mod+Shift+F".action.set-column-width = "100%";
+        "Mod+Ctrl+M".action.spawn = [ "sh" "-c" "wl-mirror $(niri msg -j focused-output | jq -r .name)" ];
+        "Mod+F".action.set-column-width = "100%";
+        "Mod+Shift+F".action.fullscreen-window = [ ];
+        "Mod+Shift+Q".action.close-window = [ ];
+      };
+
+
+      # Display configuration
+      outputs = {
+        "HDMI-A-1" = {
+          scale = 1.0;
+          mode = {
+            width = 1920;
+            height = 1080;
+            refresh = 60.000;
+          };
+        };
       };
 
     };

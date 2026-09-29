@@ -55,6 +55,8 @@
       blueman                 # Bluetooth manager.
       networkmanagerapplet    # WiFi GUI for NetworkManager.
       wlr-randr               # Control monitors.
+      wl-mirror               # Allow monitor mirroring.
+      jq                      # Automatization tool.
 
 
       # ------------- Wayland Components --------------
