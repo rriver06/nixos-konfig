@@ -127,7 +127,10 @@
         "Mod+Shift+E".action.power-off-monitors = {};
         "Mod+F7".action.spawn = [ "wlr-randr" "--output" "eDP-1" "--off" ];
         "Mod+Shift+F7".action.spawn = [ "wlr-randr" "--output" "eDP-1" "--on" ];
-        "Mod+Ctrl+M".action.spawn = [ "sh" "-c" "wl-mirror $(niri msg -j focused-output | jq -r .name)" ];
+        "Mod+Ctrl+M".action.spawn-sh = ''
+          wl-mirror $(niri msg -j focused-output | jq -r .name) &
+          sleep 0.3 && niri msg action focus-monitor "HDMI-A-1" && sleep 0.1 && niri msg action focus-monitor "eDP-1"
+        '';
         "Mod+F".action.set-column-width = "100%";
         "Mod+Shift+F".action.fullscreen-window = [ ];
         "Mod+Shift+Q".action.close-window = [ ];
