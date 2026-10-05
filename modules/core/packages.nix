@@ -176,15 +176,17 @@
   };
 
   # Enable XDG desktop portal.
-  xdg.portal = {
-    enable = true;
-    extraPortals = [
-      pkgs.xdg-desktop-portal-gtk
-    ];
-    config = {
-      common = { default = [ "gtk" ]; };
-    };
-  };
+  # xdg.portal = {
+  #   enable = true;
+  #   extraPortals = with pkgs; [
+  #     xdg-desktop-portal-gtk
+  #     xdg-desktop-portal-gnome
+  #   ];
+  #   config = {
+  #     common = { default = [ "gtk" ]; };
+  #     niri = { default = [ "gtk" ]; };
+  #   };
+  # };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
