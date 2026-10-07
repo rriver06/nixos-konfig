@@ -16,7 +16,6 @@
 
     # App settings.
     ./apps/nvf.nix
-    ./apps/wine.nix
 
     # AppImage settings.
     # ./apps/appimages/appimage-template.nix

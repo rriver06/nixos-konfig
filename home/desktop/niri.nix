@@ -405,10 +405,7 @@
         "Mod+Shift+Print".action.spawn = [ "sh" "-c" "grim -g \"$(slurp)\" - | swappy -f -" ];
 
         # Screen Recording
-        # Record a selected area (repeat shortcut to stop
-        "Mod+Ctrl+Alt+Print".action.spawn-sh = ''
-          pgrep -x wf-recorder >/dev/null && pkill -x wf-recorder || wf-recorder -g \"$(slurp)\" -f \"$HOME/Videos/Recordings/recording-$(date +%F-%H%M%S).mp4\"
-        '';
+        # Maybe just use obs.
 
 
         # Window shortcuts.
