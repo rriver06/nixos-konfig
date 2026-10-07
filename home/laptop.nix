@@ -16,6 +16,7 @@
 
     # App settings.
     ./apps/nvf.nix
+    ./apps/wine.nix
 
     # AppImage settings.
     # ./apps/appimages/appimage-template.nix
@@ -43,6 +44,13 @@
       inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
 
 
+      # ---------------- Windows Apps -----------------
+
+      wineWow64Packages.staging # Wine program.
+      winetricks                # GUI for Wine settings.
+      bottles                   # Helper app for wine management.
+
+
       # ---------------- Desktop / WM -----------------
 
       kitty                     # Graphical terminal.
@@ -62,6 +70,7 @@
       wf-recorder               # Screen recorder.
       imv                       # Image viewer (provisional).
       evince                    # Document viewer.
+      swappy                    # Screenshot editor.
 
 
       # ---------------- System Tools -----------------

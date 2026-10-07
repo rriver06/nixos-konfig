@@ -15,7 +15,7 @@
       hotkey-overlay.skip-at-startup = true;
 
       # Screenshot save path
-      screenshot-path = "$HOME/Pictures/Screenshots/Screenshot From %Y-%m-%d %H-%M-%S.png";
+      screenshot-path = "~/Pictures/Screenshots/Screenshot From %Y-%m-%d %H-%M-%S.png";
 
       # Disable default clipboard management.
       clipboard.disable-primary = true;
@@ -189,19 +189,29 @@
         # Force dialogs to be floating windows.
         {
           matches = [
-            { app-id = "^pavucontrol$"; }
             { app-id = "^blueman-manager$"; }
             { app-id = "^nm-connection-editor$"; }
             { app-id = "^polkit-gnome-authentication-agent-1$"; }
             { app-id = "^org.gnome.Calculator$"; }
             { app-id = "^swappy$"; }
             { app-id = "^wlogout$"; }
-            { app-id = "file-roller"; }
+            { app-id = "FileRoller"; }
             { title = "^(Open File|Save File|Save As|Choose File|Select a File|Authentication Required)$"; }
             { title = "^(Preferences|Settings|About|Properties)$"; }
+            { app-id = "^steam$"; title = "^Steam Dialog$"; }
           ];
           open-floating = true;
           open-focused = true;
+        }
+
+        # Settings for pavucontrol.
+        {
+          matches = [
+            { app-id = "pavucontrol"; }
+          ];
+          open-floating = true;
+          default-column-width = { fixed = 650; };
+          default-window-height = { fixed = 450; };
         }
 
         # Mantains PIP video on lower corner.
@@ -253,14 +263,15 @@
           default-column-width = { proportion = 1.0; };
         }
 
-        # Make some steam dialog windows open floating.
+        # Make steam friends tab behave normally.
         {
           matches = [
             { app-id = "^steam$"; title = "(?i).*(amigos|friends|chat).*"; }
-            { app-id = "^steam$"; title = "^Steam Dialog$"; }
           ];
           open-maximized = false;
           open-floating = true;
+          default-column-width = { fixed = 380; };
+          default-window-height = { fixed = 750; };
         }
 
         # Make steam notifications act normal.
@@ -269,6 +280,7 @@
             { app-id = "^steam$"; title = "^notificationtoasts_\\d+_desktop$"; }
           ];
           open-floating = true;
+          open-focused = false;
           default-floating-position = {
             x = 10;
             y = 10;
@@ -377,14 +389,18 @@
         # Interactive clipboard manager.
         "Mod+V".action.spawn = [ "sh" "-c" "cliphist list | fuzzel --dmenu | cliphist decode | wl-copy" ];
 
+        # Change keyboard language.
+        "Mod+Space".action.switch-layout = "next";
+
         # Power menu and screen lock.
         "Mod+Alt+P".action.spawn  = [ "wlogout" ];
         "Mod+Alt+L".action.spawn  = [ "swaylock" "-f" ];
 
         # Screenshots.
         # Full screen.
-        "Print".action.spawn = [ "sh" "-c" "grim - | wl-copy" ];
-        "Mod+Print".action.spawn = [ "sh" "-c" "grim -g \"$(slurp)\" - | wl-copy" ];
+        "Print".action.screenshot = [];
+        "Alt+Print".action.screenshot-screen = [];
+        "Mod+Print".action.screenshot-window = [];
         # Select region.
         "Mod+Shift+Print".action.spawn = [ "sh" "-c" "grim -g \"$(slurp)\" - | swappy -f -" ];
 
@@ -504,8 +520,8 @@
         "Mod+Shift+P".action.power-off-monitors = [];
 
         # Power off laptop screen when connected to external source (desktop is moved).
-        "Mod+F7".action.spawn                   = [ "wlr-randr" "--output" "eDP-1" "--off" ];
-        "Mod+Shift+F7".action.spawn             = [ "wlr-randr" "--output" "eDP-1" "--on" ];
+        "Mod+F8".action.spawn                   = [ "wlr-randr" "--output" "eDP-1" "--off" ];
+        "Mod+Shift+F8".action.spawn             = [ "wlr-randr" "--output" "eDP-1" "--on" ];
 
         # Screen mirroring to external HDMI source.
         "Mod+Ctrl+M".action.spawn-sh = ''
@@ -528,7 +544,8 @@
             # Keyboard distribution, alternatively use "latam".
             layout = "us,latam";
             # Change layout using Win+Space.
-            options = "grp:win_space_toggle";
+            # Causes problems with other keybinds, replaced by switch-layout method.
+            # options = "grp:win_space_toggle";
           };
           # Keyboard repeat options.
           repeat-delay = 300;
