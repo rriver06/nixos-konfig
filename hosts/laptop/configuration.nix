@@ -21,6 +21,7 @@
       ../../modules/desktop/xserver.nix
       ../../modules/desktop/intel.nix
       ../../modules/desktop/steam.nix
+      ../../modules/desktop/stylix.nix
 
       # Include service configs
       ../../modules/services/greeter.nix

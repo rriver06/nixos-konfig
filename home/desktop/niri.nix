@@ -70,12 +70,13 @@
 
 
       # Set cursor theme.
-      cursor = {
-        theme = "Adwaita";
-        size = 24;
-        hide-when-typing = true;
-        hide-after-inactive-ms = 1000;
-      };
+      # Now managed by stylix.
+      # cursor = {
+      #   theme = config.home.pointerCursor.name;
+      #   size = config.home.pointerCursor.size;
+      #   hide-when-typing = true;
+      #   hide-after-inactive-ms = 1000;
+      # };
 
 
       # Layout config.
@@ -410,7 +411,7 @@
 
         # Window shortcuts.
         # Close windows.
-        "Mod+Shift+Q".action.close-window = [];
+        "Mod+Backspace".action.close-window = [];
 
         # Navigation.
         "Mod+Left".action.focus-column-left = [];
@@ -419,39 +420,39 @@
         "Mod+Down".action.focus-window-down = [];
         "Mod+Home".action.focus-column-first = [];
         "Mod+End".action.focus-column-last = [];
-        # Alt Navigation (DFJK).
-        "Mod+D".action.focus-column-left = [];
-        "Mod+K".action.focus-column-right = [];
-        "Mod+J".action.focus-window-up = [];
-        "Mod+F".action.focus-window-down = [];
 
         # Change window position.
-        "Mod+Shift+Left".action.move-column-left = [];
-        "Mod+Shift+Right".action.move-column-right = [];
-        "Mod+Shift+Up".action.move-window-up = [];
-        "Mod+Shift+Down".action.move-window-down = [];
-        "Mod+Shift+Home".action.move-column-to-first = [];
-        "Mod+Shift+End".action.move-column-to-last = [];
-        # Alt keys (DFJK).
-        "Mod+Shift+D".action.move-column-left = [];
-        "Mod+Shift+K".action.move-column-right = [];
-        "Mod+Shift+J".action.move-window-up = [];
-        "Mod+Shift+F".action.move-window-down = [];
+        "Mod+Ctrl+Left".action.move-column-left = [];
+        "Mod+Ctrl+Right".action.move-column-right = [];
+        "Mod+Ctrl+Up".action.move-window-up = [];
+        "Mod+Ctrl+Down".action.move-window-down = [];
+        "Mod+Ctrl+Home".action.move-column-to-first = [];
+        "Mod+Ctrl+End".action.move-column-to-last = [];
 
         # Change window dimensions.
         "Mod+Minus".action.set-column-width = "-10%";
         "Mod+Equal".action.set-column-width = "+10%";
+        "Mod+Shift+Minus".action.set-window-height = "-10%";
+        "Mod+Shift+Equal".action.set-window-height = "+10%";
 
-        # Window view.
         "Mod+R".action.switch-preset-column-width = [];
         "Mod+Shift+R".action.switch-preset-column-width-back = [];
-        "Mod+Ctrl+R".action.switch-preset-window-height = [];
-        "Mod+Ctrl+Shift+R".action.reset-window-height = [];
-        "Mod+Ctrl+F".action.maximize-column = [];
-        "Mod+Ctrl+Shift+F".action.fullscreen-window = [];
+        "Mod+Alt+R".action.switch-preset-window-height = [];
+        "Mod+Alt+Shift+R".action.switch-preset-window-height-back = [];
+
+        # Window view.
+        "Mod+F".action.maximize-column = [];
+        "Mod+Shift+F".action.fullscreen-window = [];
+
         "Mod+Shift+C".action.center-column = [];
-        # "Mod+Tab".action.toggle-overview = [];
+
+        "Mod+Ctrl+Space".action.toggle-overview = [];
+
         "Mod+Shift+Slash".action.show-hotkey-overlay = [];
+
+        # Invalid values ?
+        # "Mod+Tab".action.next-window = [];
+        # "Mod+Shift+Tab".action.previous-window = [];
 
         # Column organization.
         "Mod+BracketLeft".action.consume-or-expel-window-left = [];
@@ -460,21 +461,21 @@
         "Mod+Period".action.expel-window-from-column = [];
 
         # Floating and tiling toggle.
-        "Mod+Ctrl+Space".action.toggle-window-floating = [];
-        "Mod+Alt+Space".action.switch-focus-between-floating-and-tiling = [];
+        "Mod+Ctrl+Escape".action.toggle-window-floating = [];
+        "Mod+Escape".action.switch-focus-between-floating-and-tiling = [];
 
 
         # Workspace navigation.
         "Mod+Page_Down".action.focus-workspace-down = [];
         "Mod+Page_Up".action.focus-workspace-up = [];
-        "Mod+Shift+Page_Down".action.move-column-to-workspace-down = [];
-        "Mod+Shift+Page_Up".action.move-column-to-workspace-up = [];
+        "Mod+Ctrl+Page_Down".action.move-column-to-workspace-down = [];
+        "Mod+Ctrl+Page_Up".action.move-column-to-workspace-up = [];
 
         # Navigation using the mouse wheel.
         "Mod+WheelScrollDown".action.focus-workspace-down = [];
         "Mod+WheelScrollUp".action.focus-workspace-up = [];
-        "Mod+Shift+WheelScrollDown".action.focus-column-left = [];
-        "Mod+Shift+WheelScrollUp".action.focus-column-right = [];
+        "Mod+Ctrl+WheelScrollDown".action.focus-column-left = [];
+        "Mod+Ctrl+WheelScrollUp".action.focus-column-right = [];
         
         # Quick shortcuts for desktops from 1 to 9.
         "Mod+1".action.focus-workspace = 1;
@@ -488,22 +489,22 @@
         "Mod+9".action.focus-workspace = 9;
 
         # Move active window to specific desktop (from 1 to 9)
-        "Mod+Shift+1".action.move-column-to-workspace = 1;
-        "Mod+Shift+2".action.move-column-to-workspace = 2;
-        "Mod+Shift+3".action.move-column-to-workspace = 3;
-        "Mod+Shift+4".action.move-column-to-workspace = 4;
-        "Mod+Shift+5".action.move-column-to-workspace = 5;
-        "Mod+Shift+6".action.move-column-to-workspace = 6;
-        "Mod+Shift+7".action.move-column-to-workspace = 7;
-        "Mod+Shift+8".action.move-column-to-workspace = 8;
-        "Mod+Shift+9".action.move-column-to-workspace = 9;
+        "Mod+Ctrl+1".action.move-column-to-workspace = 1;
+        "Mod+Ctrl+2".action.move-column-to-workspace = 2;
+        "Mod+Ctrl+3".action.move-column-to-workspace = 3;
+        "Mod+Ctrl+4".action.move-column-to-workspace = 4;
+        "Mod+Ctrl+5".action.move-column-to-workspace = 5;
+        "Mod+Ctrl+6".action.move-column-to-workspace = 6;
+        "Mod+Ctrl+7".action.move-column-to-workspace = 7;
+        "Mod+Ctrl+8".action.move-column-to-workspace = 8;
+        "Mod+Ctrl+9".action.move-column-to-workspace = 9;
 
 
         # Monitor Navigation.
-        "Mod+Ctrl+Left".action.focus-monitor-left = [];
-        "Mod+Ctrl+Right".action.focus-monitor-right = [];
-        "Mod+Ctrl+Up".action.focus-monitor-up = [];
-        "Mod+Ctrl+Down".action.focus-monitor-down = [];
+        "Mod+Shift+Left".action.focus-monitor-left = [];
+        "Mod+Shift+Right".action.focus-monitor-right = [];
+        "Mod+Shift+Up".action.focus-monitor-up = [];
+        "Mod+Shift+Down".action.focus-monitor-down = [];
 
         # Change window monitor.
         "Mod+Ctrl+Shift+Left".action.move-column-to-monitor-left = [];
@@ -521,7 +522,7 @@
         "Mod+Shift+F8".action.spawn             = [ "wlr-randr" "--output" "eDP-1" "--on" ];
 
         # Screen mirroring to external HDMI source.
-        "Mod+Ctrl+M".action.spawn-sh = ''
+        "Mod+Alt+M".action.spawn-sh = ''
           wl-mirror $(niri msg -j focused-output | jq -r .name) &
           sleep 0.3 && niri msg action focus-monitor "HDMI-A-1" && sleep 0.1 && niri msg action focus-monitor "eDP-1"
         '';
@@ -552,6 +553,7 @@
         touchpad = {
           tap = true;
           dwt = true;                      # Disable touchpad while text input is active.
+          dwtp = true;                      # also disable trackpoint (if it exists).
           natural-scroll = true;
           accel-profile = "adaptive";
           click-method = "clickfinger";    # Two fingers tap for right click.

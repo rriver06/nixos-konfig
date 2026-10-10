@@ -103,6 +103,7 @@
     nixfmt              # Formatter for the Nix language.
     appimage-run        # Allows to run AppImages.
     pokeget-rs          # Show pokemon sprites on the terminal.
+    alsa-utils          # Audio related tools.
   ];
 
   # Program enabling/disabling.
@@ -116,8 +117,9 @@
   # Font packages
   fonts.packages = with pkgs; [
     terminus_font
-    jetbrains-mono
+    nerd-fonts.jetbrains-mono
     noto-fonts
+    noto-fonts-color-emoji
     noto-fonts-cjk-sans
     noto-fonts-cjk-serif
     font-awesome

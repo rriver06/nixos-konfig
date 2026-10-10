@@ -19,9 +19,11 @@
 
     # AppImage settings.
     # ./apps/appimages/appimage-template.nix
+    ./apps/appimages/mk-wiicompiled.nix
 
     # Theme settings.
     ./themes/cursor.nix
+    ./themes/stylix.nix
 
     # Desktop settings.
     ./desktop/noctalia.nix
@@ -50,6 +52,11 @@
       bottles                   # Helper app for wine management.
 
 
+      # -------------------- Apps ---------------------
+
+      gnome-text-editor         # GNOME's text editor.
+
+
       # ---------------- Desktop / WM -----------------
 
       kitty                     # Graphical terminal.
@@ -70,16 +77,13 @@
       imv                       # Image viewer (provisional).
       evince                    # Document viewer.
       swappy                    # Screenshot editor.
+      # fetchurl                  # URL data utility.
 
 
       # ---------------- System Tools -----------------
 
       brightnessctl             # Brightness control tool.
       playerctl                 # Media player control tool.
-      nautilus                  # GNOME's file manager.
-      gvfs                      # GNOME's libraries for file manager.
-      tumbler                   # Miniature generator for file manager.
-      file-roller               # File selector.
       pavucontrol               # Volume manager.
       pamixer                   # Audio utility.
       blueman                   # Bluetooth manager.
@@ -93,6 +97,19 @@
       xdg-utils                 # XDG desktop utilities.
       wev                       # Inspect keys.
       wtype                     # Used to enable NumLock on boot.
+
+      nautilus                  # GNOME's file manager.
+      gvfs                      # GNOME's libraries for file manager.
+      tumbler                   # Miniature generator for file manager.
+      file-roller               # File extractor/compressor.
+      p7zip                     # File exctraction/compression libraries.
+      rar
+      unzip
+      zip
+      gnutar
+      gzip
+      xz
+      bzip2
 
 
       # ------------- Wayland Components --------------

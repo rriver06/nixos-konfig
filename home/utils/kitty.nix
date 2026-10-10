@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
   programs.kitty = {
@@ -7,6 +7,7 @@
     font = {
       name = "JetBrainsMono Nerd Font";
       size = 12;
+      package = pkgs.nerd-fonts.jetbrains-mono;
     };
 
     settings = {

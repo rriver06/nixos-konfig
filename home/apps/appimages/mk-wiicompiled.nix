@@ -32,7 +32,7 @@ in
     name = "Mario Kart Wiicompiled";
     exec = "mk-wiicompiled";
     icon = "${mkWiicompiledIcon}";
-    categories = [ "Games" ];
+    categories = [ "Game" ];
   };
 
 

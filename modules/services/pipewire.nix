@@ -30,4 +30,14 @@
     };
   };
 
+  # Udev rule that enables Dualsense audio output.
+  services.udev.extraRules = ''
+    ACTION=="add", SUBSYSTEM=="sound", KERNEL=="card*", ATTRS{idVendor}=="054c", ATTRS{idProduct}=="0ce6", RUN+="${pkgs.writeShellScript "dualsense-audio-init" ''
+      # Esperar 1 segundo a que ALSA termine de registrar los mezcladores de la tarjeta
+      sleep 1
+      ${pkgs.alsa-utils}/bin/amixer -c DualSense sset Headphone 100% unmute || true
+      ${pkgs.alsa-utils}/bin/amixer -c DualSense sset Mic 100% unmute || true
+    ''}"
+  '';
+
 }

@@ -6,12 +6,13 @@
     enableManpages = true;
 
     settings.vim = {
-      theme = {
-        enable = true;
-        name = "catppuccin";
-        style = "mocha";
-      };
-      statusline.lualine.enable = true;
+      # Managed by stylix now.
+      # theme = {
+      #   enable = true;
+      #   name = "catppuccin";
+      #   style = "mocha";
+      # };
+      # statusline.lualine.setupOpts.options.theme.enable = true;
       telescope.enable = true;
       filetree.neo-tree.enable = true;
 

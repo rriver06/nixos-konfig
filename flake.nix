@@ -37,12 +37,18 @@
     };
     noctalia.url = "github:noctalia-dev/noctalia/cachix";
 
+    # Stylix
+    stylix = {
+      url = "github:nix-community/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Zen Browser
     zen-browser.url = "github:youwen5/zen-browser-flake";
 
   };
 
-  outputs = inputs@{ flake-parts, nixpkgs, home-manager, disko, impermanence, sops-nix, nix-flatpak, nur, nvf, niri, noctalia-greeter, noctalia, ... }:
+  outputs = inputs@{ flake-parts, nixpkgs, home-manager, disko, impermanence, sops-nix, nix-flatpak, nur, nvf, niri, noctalia-greeter, noctalia, stylix, ... }:
     flake-parts.lib.mkFlake { inherit inputs; } {
       # Architectures supported by the config.
       systems = [ "x86_64-linux" ];
@@ -61,6 +67,7 @@
             nix-flatpak.nixosModules.nix-flatpak
             nur.modules.nixos.default
             noctalia-greeter.nixosModules.default
+            stylix.nixosModules.stylix
 
             # Main config location.
             # Make sure to check the host folder being used.
