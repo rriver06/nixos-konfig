@@ -33,6 +33,7 @@ in
     exec = "mk-wiicompiled";
     icon = "${mkWiicompiledIcon}";
     categories = [ "Game" ];
+    comment = "Mario Kart Wii natively compiled for PC.";
   };
 
 

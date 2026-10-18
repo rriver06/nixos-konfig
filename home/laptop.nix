@@ -16,6 +16,7 @@
 
     # App settings.
     ./apps/nvf.nix
+    ./apps/nixd.nix
 
     # AppImage settings.
     # ./apps/appimages/appimage-template.nix
@@ -30,6 +31,7 @@
     ./desktop/niri.nix
     ./desktop/fuzzel.nix
     ./desktop/xdg.nix
+    ./desktop/swappy.nix
   ];
 
   home = {
@@ -39,6 +41,12 @@
 
     # Packages installed for this user.
     packages = with pkgs; [
+      # ------------------ Internet -------------------
+
+      lutris                    # Lutris game launcher.
+      heroic                    # Heroic games launcher.
+
+
       # ------------------ Internet -------------------
 
       # Zen Browser
@@ -77,7 +85,6 @@
       imv                       # Image viewer (provisional).
       evince                    # Document viewer.
       swappy                    # Screenshot editor.
-      # fetchurl                  # URL data utility.
 
 
       # ---------------- System Tools -----------------

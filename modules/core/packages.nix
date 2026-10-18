@@ -85,6 +85,7 @@
 
     # Terminal & sync
     vim                 # VIM, no more description needed.
+    nixd                # Nix language formatter.
     tmux                # Terminal multiplexor (open various terminals on just one window, or tty).
     git                 # Version control and repo file sync.
     gh                  # Official GitHib CLI.
@@ -125,6 +126,9 @@
     font-awesome
   ];
 
+  # Nixd flakes config.
+  nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
+
   # Niri and noctalia cached packages override.
   nix.settings = {
     extra-substituters = [
@@ -161,34 +165,56 @@
   # ---------------------------------------------------------------------
 
   # Config for AppImage running.
-  # Legacy method: (only here in case new method doesn't work).
-  # boot.binfmt.registrations.appimage = {
-  #   wrapInterpreterInShell = false;
-  #   interpreter = "${pkgs.appimage-run}/bin/appimage-run";
-  #   recognitionType = "magic";
-  #   offset = 0;
-  #   mask = ''\xff\xff\xff\xff\x00\x00\x00\x00\xff\xff\xff'';
-  #   magicOrExtension = ''\x7fELF....AI\x02'';
-  # };
-
-  # Modern method
   programs.appimage = {
     enable = true;
     binfmt = true;
+
+    package = pkgs.appimage-run.override {
+      extraPkgs = pkgs: with pkgs; [
+        libxml2
+        icu
+        zlib
+        SDL2
+        vulkan-loader
+        mesa
+        wayland
+
+        libx11
+        libxcursor
+        libxi
+        libxrandr
+      ];
+    };
   };
 
-  # Enable XDG desktop portal.
-  # xdg.portal = {
-  #   enable = true;
-  #   extraPortals = with pkgs; [
-  #     xdg-desktop-portal-gtk
-  #     xdg-desktop-portal-gnome
-  #   ];
-  #   config = {
-  #     common = { default = [ "gtk" ]; };
-  #     niri = { default = [ "gtk" ]; };
-  #   };
-  # };
+  # Nix-ld config.
+  programs.nix-ld = {
+    enable = true;
+
+    libraries = with pkgs; [
+      stdenv.cc.cc
+      glibc
+      zlib
+      libxml2
+      icu
+      SDL2
+      vulkan-loader
+      mesa
+      wayland
+
+      libx11
+      libxcursor
+      libxi
+      libxrandr
+    ];
+  };
+
+  # Podman config.
+  virtualisation.podman = {
+    enable = true;
+    dockerCompat = true;
+    defaultNetwork.settings.dns_enabled = true;
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

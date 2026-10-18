@@ -19,6 +19,11 @@
       lsp = {
         enable = true;
         formatOnSave = true;
+        servers = {
+          nixd = {
+            enable = true;
+          };
+        };
       };
 
       # Add languages support
@@ -32,7 +37,9 @@
             enable = true;
             type = [ "nixfmt" ];
           };
+          lsp.enable = true;
         };
+
       };
 
       # Enable EXRC

@@ -377,7 +377,7 @@
         # App Execution.
         "Mod+Return".action.spawn = [ "kitty" ];
         "Mod+S".action.spawn      = [ "fuzzel" ];
-        "Mod+E".action.spawn      = [ "nautilus" ];
+        "Mod+E".action.spawn      = [ "nautilus" "--new-window" ];
         "Mod+B".action.spawn      = [ "zen" ];
 
         # Sound manager
@@ -450,9 +450,6 @@
 
         "Mod+Shift+Slash".action.show-hotkey-overlay = [];
 
-        # Invalid values ?
-        # "Mod+Tab".action.next-window = [];
-        # "Mod+Shift+Tab".action.previous-window = [];
 
         # Column organization.
         "Mod+BracketLeft".action.consume-or-expel-window-left = [];
