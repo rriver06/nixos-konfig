@@ -1,0 +1,31 @@
+FROM docker.io/library/debian:stable-slim
+
+RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
+    ca-certificates \
+    curl \
+    file \
+    gcc \
+    g++ \
+    libc6-dev \
+    binutils \
+    strace \
+    cmake \
+    ninja-build \
+    pkg-config \
+    libxml2 \
+    libicu-dev \
+    zlib1g-dev \
+    libsdl2-2.0-0 \
+    libvulkan1 \
+    libgl1 \
+    libx11-6 \
+    libxcursor1 \
+    libxi6 \
+    libxrandr2 \
+    libwayland-dev \
+    libxkbcommon-dev \
+    wayland-protocols \
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /work
+CMD ["/bin/bash"]

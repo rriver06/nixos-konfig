@@ -30,7 +30,9 @@ in
   # Create the .desktop file.
   xdg.desktopEntries."mk-wiicompiled" = {
     name = "Mario Kart Wiicompiled";
-    exec = "mk-wiicompiled";
+    exec = "${pkgs.writeShellScriptBin "mk-wiicompiled-run" ''
+      gamemoderun steam-run "$HOME/Games/Recomps/MKWiicompiled/Compilation/RetroRewind"
+    ''}/bin/mk-wiicompiled-run";
     icon = "${mkWiicompiledIcon}";
     categories = [ "Game" ];
     comment = "Mario Kart Wii natively compiled for PC.";
