@@ -113,6 +113,7 @@
     xwayland.enable = true;    # Allows X11 apps on Wayland.
     niri.enable = true;        # Niri tiling WM.
     java.enable = true;        # Enables java.
+    dconf.enable = true;       # Special config edit.
   };
 
   # Font packages
@@ -124,6 +125,8 @@
     noto-fonts-cjk-sans
     noto-fonts-cjk-serif
     font-awesome
+    corefonts
+    vista-fonts
   ];
 
   # Nixd flakes config.

@@ -86,6 +86,7 @@
       imv                       # Image viewer (provisional).
       evince                    # Document viewer.
       swappy                    # Screenshot editor.
+      zenity                    # File selector.
 
 
       # ---------------- System Tools -----------------
