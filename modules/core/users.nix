@@ -13,7 +13,7 @@
   # Remember to check the username.
   users.users.rriver06 = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" "audio" "video" "input" ];
+    extraGroups = [ "wheel" "networkmanager" "audio" "video" "input" "gamemode" ];
     hashedPasswordFile = config.sops.secrets.shadow_password.path;
     shell = pkgs.fish;
     openssh.authorizedKeys.keyFiles = [

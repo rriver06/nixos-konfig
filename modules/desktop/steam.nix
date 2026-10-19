@@ -32,7 +32,15 @@
   };
 
   # Enable gamemode.
-  programs.gamemode.enable = true;
+  programs.gamemode = {
+    enable = true;
+    enableRenice = true;
+    settings = {
+      general = {
+        renice = 10;
+      };
+    };
+  };
 
   # Enable gamescope.
   programs.gamescope = {
@@ -43,5 +51,17 @@
   # Enable the XBOX Controller USB dongle.
   hardware.xone.enable = true;
   hardware.uinput.enable = true;
+
+
+  # Polkit rule to prevent password prompt when executing gamemode.
+  security.polkit.extraConfig = ''
+    polkit.addRule(function(action, subject) {
+        if ((action.id == "com.feralinteractive.GameMode.governor" ||
+             action.id == "com.feralinteractive.GameMode.procmode") &&
+            subject.isInGroup("wheel")) {
+            return polkit.Result.YES;
+        }
+    });
+  '';
 
 }
