@@ -44,11 +44,20 @@
     };
 
     # Zen Browser
-    zen-browser.url = "github:youwen5/zen-browser-flake";
+    zen-browser = {
+      url = "github:0xc000022070/zen-browser-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # ArtCraft Tools
+    artcraft = {
+      url = "github:devitek/artcraft-nixos";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
   };
 
-  outputs = inputs@{ flake-parts, nixpkgs, home-manager, disko, impermanence, sops-nix, nix-flatpak, nur, nvf, niri, noctalia-greeter, noctalia, stylix, ... }:
+  outputs = inputs@{ flake-parts, nixpkgs, home-manager, disko, impermanence, sops-nix, nix-flatpak, nur, nvf, niri, noctalia-greeter, noctalia, stylix, zen-browser, artcraft, ... }:
     flake-parts.lib.mkFlake { inherit inputs; } {
       # Architectures supported by the config.
       systems = [ "x86_64-linux" ];
@@ -85,6 +94,8 @@
                 sharedModules = [
                   nvf.homeManagerModules.default
                   noctalia.homeModules.default
+                  zen-browser.homeModules.beta
+                  artcraft.homeManagerModules.default
                 ];
 
                 # Make sure to check the username here.

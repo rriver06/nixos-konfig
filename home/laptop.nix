@@ -17,6 +17,8 @@
     # App settings.
     ./apps/nvf.nix
     ./apps/nixd.nix
+    ./apps/artcraft.nix
+    ./apps/zen-browser.nix
 
     # AppImage settings.
     # ./apps/appimages/appimage-template.nix
@@ -49,8 +51,7 @@
 
       # ------------------ Internet -------------------
 
-      # Zen Browser
-      inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
+      firefoxpwa                # Progressive Web Apps for Firefox.
 
 
       # ---------------- Windows Apps -----------------

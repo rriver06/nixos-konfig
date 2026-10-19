@@ -257,6 +257,7 @@
             { app-id = "(?i).*(quaver).*"; }
             { app-id = "(?i).*(snapgame).*"; }
             { app-id = "(?i).*(beat banger).*"; }
+            { app-id = "(?i).*(retrorewind).*"; }
             # { app-id = "^game-id$"; }
           ];
           open-maximized = true;
@@ -378,7 +379,7 @@
         "Mod+Return".action.spawn = [ "kitty" ];
         "Mod+S".action.spawn      = [ "fuzzel" ];
         "Mod+E".action.spawn      = [ "nautilus" "--new-window" ];
-        "Mod+B".action.spawn      = [ "zen" ];
+        "Mod+B".action.spawn      = [ "zen-beta" ];
 
         # Sound manager
         "Mod+Alt+S".action.spawn = [ "pavucontrol" ];
